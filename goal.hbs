@@ -1,0 +1,5 @@
+{{#game-hand game="sushi" as |cards|}}
+  {{#each cards as |card|}}
+    {{game-card game=card.game cardNumber=card.number}}
+  {{/each}}
+{{/game-hand}}
