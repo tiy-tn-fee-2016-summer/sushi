@@ -4,15 +4,10 @@
   <div class="main">
     {{outlet}}
 
-    {{game-hand}}
-    {{game-hand game="sushi"}}
-    {{game-hand}}
-    {{game-hand}}
-
-    <div class="cards">
-      {{game-card game="sushi" cardNumber=43}}
-      {{game-card game="dominion" cardNumber=2}}
-    </div>
+    {{#game-hand game="sushi" as |currentGame|}}
+      {{game-card game=currentGame cardNumber=43}}
+      {{game-card game=currentGame cardNumber=2}}
+    {{/game-hand}}
   </div>
 
   <footer class="footer">

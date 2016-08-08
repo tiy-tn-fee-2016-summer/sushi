@@ -1,3 +1,9 @@
-<h2>{{game}}</h2>
+<div class="hand">
+  <h2>You are playing {{game}}</h2>
 
-<button {{action "changeGame"}}>Change Games</button>
+  <div class="cards">
+    {{yield game}}
+  </div>
+
+  <button {{action "changeGame"}}>Change Games</button>
+</div>
