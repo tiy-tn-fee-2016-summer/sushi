@@ -1,0 +1,28 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+}
+.card {
+  position: relative;
+  width: 10rem;
+  overflow: hidden;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.card:before {
+  content: "";
+  display: block;
+  padding-top: 140%;
+}
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+img {
+  min-width: 100%;
+  height: auto;
+}
