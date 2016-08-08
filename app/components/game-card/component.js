@@ -26,8 +26,22 @@ export default Ember.Component.extend({
   },
 
   computeStyle(gameDetails) {
+    // Start with 0... Because Math!
+    const index = this.get('cardNumber') - 1;
+    // Remainder of the width should give us the column we are in
+    const leftOffset = index % gameDetails.width;
+    // Division and rounding down gives us the row we're in
+    const topOffset = Math.floor(index / gameDetails.width);
+
+    // Going left -100% times our column value skips cards horizontally
+    const leftStyle = `left: calc(-100% * ${leftOffset});`;
+    // Going top -100% times our row value skips cards vertically
+    const topStyle = `top: calc(-100% * ${topOffset});`;
+
     const widthStyle = `width: calc(100% * ${gameDetails.width});`;
     const heightStyle = `height: calc(100% * ${gameDetails.height});`;
-    this.set('imageStyle', `${widthStyle} ${heightStyle}`);
+
+    // Put it all together!
+    this.set('imageStyle', `${widthStyle} ${heightStyle} ${leftStyle} ${topStyle}`);
   },
 });
